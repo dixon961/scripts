@@ -10,8 +10,8 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # Variables
-REPO_URL="https://github.com/MHSanaei/3x-ui"  # <-- change this!
-CLONE_DIR="/3x-ui"  # where to clone
+REPO_URL="https://github.com/MHSanaei/3x-ui"
+CLONE_DIR="/3x-ui/"
 
 # Update system
 apt update
