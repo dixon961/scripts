@@ -19,9 +19,14 @@ apt update
 # Install Git
 apt install -y git
 
-# Install Docker
-curl -fsSL https://get.docker.com -o get-docker.sh
-sh get-docker.sh
+# Check if Docker is installed
+if ! command -v docker &> /dev/null; then
+    echo "Docker is not installed. Installing Docker..."
+    curl -fsSL https://get.docker.com -o get-docker.sh
+    sh get-docker.sh
+else
+    echo "Docker is already installed. Skipping Docker installation."
+fi
 
 # Clone repo
 git clone "$REPO_URL" "$CLONE_DIR"
