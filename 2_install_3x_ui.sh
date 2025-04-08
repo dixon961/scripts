@@ -18,6 +18,7 @@ apt update
 
 # Install Git
 apt install -y git
+apt install -y curl
 
 # Check if Docker is installed
 if ! command docker -v &> /dev/null; then
