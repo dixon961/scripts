@@ -7,6 +7,7 @@ bash 1_user_create.sh
 ```
 
 ***REBOOT VPS FROM CONSOLE***
+
 ***login as new user***
 
 ```
