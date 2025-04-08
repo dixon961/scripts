@@ -20,7 +20,7 @@ apt update
 apt install -y git
 
 # Check if Docker is installed
-if ! command -v docker &> /dev/null; then
+if ! command docker -v &> /dev/null; then
     echo "Docker is not installed. Installing Docker..."
     curl -fsSL https://get.docker.com -o get-docker.sh
     sh get-docker.sh
