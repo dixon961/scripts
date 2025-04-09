@@ -11,7 +11,7 @@ fi
 
 # Variables
 REPO_URL="https://github.com/MHSanaei/3x-ui"
-CLONE_DIR="~/3x-ui/"
+CLONE_DIR="$HOME/3x-ui/"
 
 # Update system
 apt update
