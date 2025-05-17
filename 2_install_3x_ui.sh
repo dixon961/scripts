@@ -9,9 +9,12 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
+# Get the username of the non-root user who invoked sudo
+TARGET_USER="${SUDO_USER:-$USER}"
+
 # Variables
 REPO_URL="https://github.com/MHSanaei/3x-ui"
-CLONE_DIR="$HOME/3x-ui/"
+CLONE_DIR="/home/$TARGET_USER/3x-ui/"
 
 # Update system
 apt update
@@ -28,6 +31,12 @@ if ! command docker -v &> /dev/null; then
 else
     echo "Docker is already installed. Skipping Docker installation."
 fi
+
+# Add the user to the docker group
+echo "Adding user '$TARGET_USER' to the docker group..."
+usermod -aG docker "$TARGET_USER"
+
+echo "User '$TARGET_USER' added to docker group. They must log out and log back in for group changes to take effect."
 
 # Clone repo
 git clone "$REPO_URL" "$CLONE_DIR"
